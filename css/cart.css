@@ -22,3 +22,15 @@
 .secure-note svg{width:13px;height:13px;stroke:#aaa;fill:none}
 .payment-icons{display:flex;gap:8px;justify-content:center;margin-top:14px}
 .p-icon{background:#F5F0E8;border-radius:4px;padding:4px 10px;font-size:10px;color:#888;font-weight:600}
+
+@media(max-width:768px){
+.cart-layout{grid-template-columns:1fr;padding:16px 20px}
+.cart-item{grid-template-columns:60px 1fr;gap:10px}
+.item-price-col{flex-direction:row;align-items:center;gap:8px}
+.coupon-row{flex-direction:column}
+.coupon-row button{width:100%}
+}
+
+@media(max-width:480px){
+.cart-item{grid-template-columns:50px 1fr}
+}

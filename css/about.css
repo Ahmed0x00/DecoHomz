@@ -54,3 +54,17 @@
 .cta-text .cta-sub{font-size:13px;color:rgba(255,255,255,.5)}
 .cta-btns{display:flex;gap:12px}
 .btn-outline-w{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3);padding:12px 26px;font-size:13px;border-radius:6px;cursor:pointer}
+
+@media(max-width:768px){
+.about-hero{grid-template-columns:1fr}
+.hero-right{display:none}
+.story{grid-template-columns:1fr}
+.story-visual{display:none}
+.stats-bar{grid-template-columns:repeat(2,1fr)}
+.stat{border-bottom:1px solid rgba(255,255,255,.15)}
+.values-grid{grid-template-columns:1fr}
+.team-grid{grid-template-columns:repeat(2,1fr)}
+.showrooms-grid{grid-template-columns:1fr}
+.cta-band{flex-direction:column;text-align:center;gap:20px}
+.cta-btns{flex-direction:column;align-items:center}
+}

@@ -25,3 +25,24 @@
 .ban-sub{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:20px}
 .ban-right{background:#3D2B1A;display:flex;align-items:center;justify-content:center}
 .ban-right svg{width:200px;opacity:.85}
+
+@media(max-width:768px){
+.hero{grid-template-columns:1fr;min-height:auto}
+.hero-text{padding:32px 24px;align-items:center;text-align:center}
+.hero-img{display:none}
+.hero-h1{font-size:26px}
+.hero-sub{max-width:100%}
+.hero-btns{justify-content:center}
+.cat-row{grid-template-columns:repeat(3,1fr)}
+.prod-grid{grid-template-columns:repeat(2,1fr)}
+.banner{grid-template-columns:1fr;margin:0 20px 24px}
+.ban-left{padding:28px 24px}
+.ban-h{font-size:20px}
+.ban-right{display:none}
+}
+
+@media(max-width:480px){
+.cat-row{grid-template-columns:repeat(2,1fr)}
+.prod-grid{grid-template-columns:1fr}
+.hero-h1{font-size:22px}
+}

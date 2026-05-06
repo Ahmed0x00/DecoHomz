@@ -30,3 +30,14 @@
 .terms{font-size:10px;color:#aaa;text-align:center;margin-top:16px;line-height:1.6}
 .terms a{color:#B8860B}
 .register-form{display:none}
+
+@media(max-width:768px){
+.auth-wrap{grid-template-columns:1fr}
+.auth-left{padding:32px 24px;min-height:50vh}
+.auth-room svg{width:200px}
+.auth-bg{font-size:100px}
+.auth-right{padding:32px 24px}
+.auth-box{max-width:100%}
+.tabs{overflow-x:auto}
+.tab{white-space:nowrap}
+}

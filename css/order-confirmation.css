@@ -55,3 +55,13 @@
 .btn-dark{background:#2C1F14;color:#fff;border:none;padding:11px 28px;font-size:13px;border-radius:6px;cursor:pointer;font-weight:600}
 .btn-outline{background:#fff;color:#2C1F14;border:1.5px solid #2C1F14;padding:11px 28px;font-size:13px;border-radius:6px;cursor:pointer}
 .btn-gold{background:#B8860B;color:#fff;border:none;padding:11px 28px;font-size:13px;border-radius:6px;cursor:pointer;font-weight:600}
+
+@media(max-width:768px){
+.confirm-wrap{margin:24px auto}
+.confirm-grid{grid-template-columns:1fr}
+.timeline{overflow-x:auto}
+.tl-steps{min-width:500px}
+.order-items{padding:16px}
+.summary-bar{flex-wrap:wrap;gap:16px;justify-content:center}
+.cta-row{flex-direction:column;align-items:center}
+}

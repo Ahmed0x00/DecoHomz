@@ -42,3 +42,17 @@
 .profile-form{background:#fff;border:1px solid #EDE8E2;border-radius:10px;padding:20px;margin-bottom:20px}
 .form-section-title{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #F5F0E8}
 .save-btn{background:#2C1F14;color:#fff;border:none;padding:10px 24px;font-size:12px;border-radius:6px;cursor:pointer;font-weight:600}
+
+@media(max-width:768px){
+.account-layout{grid-template-columns:1fr}
+.acc-sidebar{border-right:none;border-bottom:1px solid #EDE8E2;padding:16px 0}
+.acc-profile{display:none}
+.acc-main{padding:20px 16px}
+.stats-row{grid-template-columns:repeat(2,1fr)}
+.order-card{grid-template-columns:1fr}
+.order-total{text-align:left;margin-top:8px}
+}
+
+@media(max-width:480px){
+.stats-row{grid-template-columns:1fr}
+}

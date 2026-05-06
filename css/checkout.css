@@ -47,3 +47,12 @@ nav .nav-right a{color:#B8860B;text-decoration:none}
 .secure-note{display:flex;align-items:center;gap:6px;justify-content:center;margin-top:10px;font-size:11px;color:#aaa}
 .secure-note svg{width:12px;height:12px;stroke:#aaa;fill:none}
 .sum-row .v.free{color:#4A7C3F}
+
+@media(max-width:768px){
+.checkout-wrap{grid-template-columns:1fr;padding:16px 20px}
+.summary-box{position:static}
+.payment-tabs{overflow-x:auto;flex-wrap:nowrap}
+.pay-tab{white-space:nowrap}
+.delivery-opts{gap:8px}
+.alt-pay{overflow-x:auto}
+}
