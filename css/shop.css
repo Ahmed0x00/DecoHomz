@@ -1,0 +1,380 @@
+/* ============================================
+   DECOHOMZ — SHOP PAGE STYLES
+   ============================================ */
+
+/* ── Layout ── */
+.shop-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: calc(100vh - 120px);
+    background: #fff;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+    background: #fff;
+    border-right: 1px solid #F0EBE5;
+    padding: 40px 32px;
+    position: sticky;
+    top: 80px;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+.filter-group {
+    margin-bottom: 40px;
+}
+
+.filter-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #2C1F14;
+    margin-bottom: 20px;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-item:hover label {
+    color: #2C1F14;
+}
+
+.filter-item input[type="checkbox"] {
+    accent-color: #B8860B;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.filter-item label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.filter-item label span {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.price-range {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.price-range input {
+    width: 100%;
+    border: 1px solid #EDE8E2;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 14px;
+    color: #2C1F14;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.price-range input:focus {
+    border-color: #B8860B;
+}
+
+.price-range span {
+    color: #ccc;
+}
+
+.color-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.color-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.color-dot:hover {
+    transform: scale(1.15);
+}
+
+.color-dot.active {
+    border-color: #2C1F14;
+    box-shadow: 0 0 0 2px #fff inset;
+}
+
+.btn-apply {
+    background: #2C1F14;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: all 0.2s;
+}
+
+.btn-apply:hover {
+    background: #3D2B1F;
+    box-shadow: 0 4px 12px rgba(44, 31, 20, 0.15);
+}
+
+/* ── Main content area ── */
+.main {
+    padding: 40px 48px;
+}
+
+.main-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.result-count {
+    font-size: 14px;
+    color: #888;
+}
+
+.sort-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.sort-row select {
+    border: 1px solid #EDE8E2;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 14px;
+    color: #2C1F14;
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.sort-row select:focus {
+    border-color: #B8860B;
+}
+
+.grid-toggle {
+    display: flex;
+    gap: 8px;
+}
+
+.grid-btn {
+    border: 1px solid #EDE8E2;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    background: #fff;
+    font-size: 16px;
+    color: #888;
+    transition: all 0.2s;
+}
+
+.grid-btn.active {
+    background: #2C1F14;
+    color: #fff;
+    border-color: #2C1F14;
+}
+
+/* ── Product grid ── */
+.main .prod-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+/* ── Product card ── */
+.prod-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.prod-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.prod-img {
+    background: #F8F5F2;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+}
+
+.prod-card:hover .prod-img {
+    background: #F0EBE5;
+}
+
+/* SVG Sizing Fix — ensure it doesn't look oversized */
+.prod-img svg {
+    width: 65%;
+    height: 65%;
+    transition: transform 0.3s ease;
+}
+
+.prod-card:hover .prod-img svg {
+    transform: scale(1.05);
+}
+
+.prod-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #B8860B;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.prod-badge.sale {
+    background: #c0392b;
+}
+
+.prod-info {
+    padding: 20px 8px;
+}
+
+.prod-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2C1F14;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+}
+
+.prod-card:hover .prod-name {
+    color: #B8860B;
+}
+
+.prod-cat {
+    font-size: 12px;
+    color: #aaa;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.prod-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2C1F14;
+}
+
+.prod-price s {
+    font-size: 13px;
+    color: #aaa;
+    font-weight: 400;
+    margin-left: 6px;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 60px 0 20px;
+}
+
+.page-btn {
+    border: 1px solid #EDE8E2;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #fff;
+    color: #555;
+    transition: all 0.2s;
+}
+
+.page-btn:hover {
+    border-color: #2C1F14;
+    color: #2C1F14;
+}
+
+.page-btn.active {
+    background: #2C1F14;
+    color: #fff;
+    border-color: #2C1F14;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+    .main .prod-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .main {
+        padding: 40px 32px;
+    }
+}
+
+@media (max-width: 900px) {
+    .shop-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #F0EBE5;
+        padding: 32px 24px;
+    }
+
+    .main {
+        padding: 32px 24px;
+    }
+
+    .main .prod-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .main .prod-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .main {
+        padding: 24px 16px;
+    }
+}
