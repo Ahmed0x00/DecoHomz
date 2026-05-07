@@ -4,44 +4,80 @@
 
 let deliveryFee = 0;
 
+let currentCheckoutStep = 1;
+
 document.addEventListener('DOMContentLoaded', () => {
     renderCheckoutSummary();
     
     const placeOrderBtn = document.querySelector('.btn-place');
     if (placeOrderBtn) {
+        placeOrderBtn.textContent = 'Continue to Payment →';
         placeOrderBtn.addEventListener('click', (e) => {
-            if (!validateForm('checkout-form')) {
-                e.preventDefault();
-                return;
+            e.preventDefault();
+            if (currentCheckoutStep === 1) {
+                if (!document.getElementById('checkout-form').checkValidity()) {
+                    document.getElementById('checkout-form').reportValidity();
+                    return;
+                }
+                document.getElementById('checkout-step-1').style.display = 'none';
+                document.getElementById('checkout-step-2').style.display = 'block';
+                
+                document.querySelectorAll('.step')[2].classList.replace('active', 'done');
+                document.querySelectorAll('.step')[2].querySelector('.step-num').textContent = '✓';
+                document.querySelectorAll('.step-line')[2].classList.add('done');
+                document.querySelectorAll('.step')[3].classList.replace('inactive', 'active');
+                
+                placeOrderBtn.textContent = 'Place Order →';
+                currentCheckoutStep = 2;
+                window.scrollTo(0,0);
+            } else {
+                submitOrder();
             }
-            const cart = DH_STORAGE.get('dh_cart') || [];
-            
-            // If cart is empty, we use dummy data for the order so the prototype flow works
-            const orderItems = cart.length > 0 ? cart : [
-                { id: 'luna-sofa', name: 'Luna 3-Seater Sofa', price: 12999, quantity: 1, variant: 'Walnut' },
-                { id: 'elio-table', name: 'Elio Coffee Table', price: 4999, quantity: 1, variant: 'Natural' }
-            ];
-
-            // Save order to history
-            const orders = DH_STORAGE.get('dh_orders') || [];
-            const newOrder = {
-                id: 'DH' + Math.floor(Math.random() * 100000),
-                date: new Date().toLocaleDateString(),
-                status: 'Processing',
-                items: orderItems,
-                total: calculateTotal(orderItems) + deliveryFee
-            };
-            orders.push(newOrder);
-            DH_STORAGE.set('dh_orders', orders);
-            
-            // Clear cart
-            DH_STORAGE.set('dh_cart', []);
-            
-            // Redirect
-            location.href = 'order-confirmation.html';
         });
     }
 });
+
+window.backToShipping = function() {
+    document.getElementById('checkout-step-2').style.display = 'none';
+    document.getElementById('checkout-step-1').style.display = 'block';
+    
+    document.querySelectorAll('.step')[2].classList.replace('done', 'active');
+    document.querySelectorAll('.step')[2].querySelector('.step-num').textContent = '3';
+    document.querySelectorAll('.step-line')[2].classList.remove('done');
+    document.querySelectorAll('.step')[3].classList.replace('active', 'inactive');
+    
+    document.querySelector('.btn-place').textContent = 'Continue to Payment →';
+    currentCheckoutStep = 1;
+    window.scrollTo(0,0);
+};
+
+function submitOrder() {
+    const cart = DH_STORAGE.get('dh_cart') || [];
+    
+    // If cart is empty, we use dummy data for the order so the prototype flow works
+    const orderItems = cart.length > 0 ? cart : [
+        { id: 'luna-sofa', name: 'Luna 3-Seater Sofa', price: 12999, quantity: 1, variant: 'Walnut' },
+        { id: 'elio-table', name: 'Elio Coffee Table', price: 4999, quantity: 1, variant: 'Natural' }
+    ];
+
+    // Save order to history
+    const orders = DH_STORAGE.get('dh_orders') || [];
+    const newOrder = {
+        id: 'DH' + Math.floor(Math.random() * 100000),
+        date: new Date().toLocaleDateString(),
+        status: 'Processing',
+        items: orderItems,
+        total: calculateTotal(orderItems) + deliveryFee
+    };
+    orders.push(newOrder);
+    DH_STORAGE.set('dh_orders', orders);
+    
+    // Clear cart
+    DH_STORAGE.set('dh_cart', []);
+    
+    // Redirect
+    location.href = 'order-confirmation.html';
+}
 
 function renderCheckoutSummary() {
     const cart = DH_STORAGE.get('dh_cart') || [];
