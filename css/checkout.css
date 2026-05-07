@@ -51,6 +51,19 @@ nav .nav-right a{color:#B8860B;text-decoration:none}
 @media(max-width:768px){
 .checkout-wrap{grid-template-columns:1fr;padding:16px 20px}
 .summary-box{position:static}
+
+.checkout-wrap.step-1-active .sum-title,
+.checkout-wrap.step-1-active .sum-items,
+.checkout-wrap.step-1-active .coupon-row,
+.checkout-wrap.step-1-active .sum-row {
+    display: none;
+}
+.checkout-wrap.step-1-active .sum-total {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
 .payment-tabs{overflow-x:auto;flex-wrap:nowrap}
 .pay-tab{white-space:nowrap}
 .delivery-opts{gap:8px}

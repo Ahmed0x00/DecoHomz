@@ -9,6 +9,9 @@ let currentCheckoutStep = 1;
 document.addEventListener('DOMContentLoaded', () => {
     renderCheckoutSummary();
     
+    const wrap = document.querySelector('.checkout-wrap');
+    if (wrap) wrap.classList.add('step-1-active');
+    
     const placeOrderBtn = document.querySelector('.btn-place');
     if (placeOrderBtn) {
         placeOrderBtn.textContent = 'Continue to Payment →';
@@ -28,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelectorAll('.step')[3].classList.replace('inactive', 'active');
                 
                 placeOrderBtn.textContent = 'Place Order →';
+                if (wrap) wrap.classList.replace('step-1-active', 'step-2-active');
                 currentCheckoutStep = 2;
                 window.scrollTo(0,0);
             } else {
@@ -47,6 +51,8 @@ window.backToShipping = function() {
     document.querySelectorAll('.step')[3].classList.replace('active', 'inactive');
     
     document.querySelector('.btn-place').textContent = 'Continue to Payment →';
+    const wrap = document.querySelector('.checkout-wrap');
+    if (wrap) wrap.classList.replace('step-2-active', 'step-1-active');
     currentCheckoutStep = 1;
     window.scrollTo(0,0);
 };
